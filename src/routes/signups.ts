@@ -24,4 +24,28 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
   res.status(201).json({ message: "Signed up successfully", data });
 });
 
+// GET /signups/by-email?email=user@example.com
+router.get("/by-email", async (req: Request, res: Response): Promise<void> => {
+  const { email } = req.query;
+
+  if (!email || typeof email !== "string") {
+    res.status(400).json({ error: "Email is required" });
+    return;
+  }
+
+  const { data, error } = await supabase
+    .from("signups")
+    .select("events(*)") // join with event data
+    .eq("user_email", email);
+
+  if (error) {
+    res.status(500).json({ error: error.message });
+    return;
+  }
+
+  const events = data.map((signup) => signup.events);
+  res.status(200).json(events);
+});
+
+
 export default router;
