@@ -25,7 +25,7 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
 });
 
 // GET /signups/by-email?email=user@example.com
-router.get("/by-email", async (req: Request, res: Response): Promise<void> => {
+router.get("/", async (req: Request, res: Response): Promise<void> => {
   const { email } = req.query;
 
   if (!email || typeof email !== "string") {
