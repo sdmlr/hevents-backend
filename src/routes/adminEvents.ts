@@ -5,7 +5,7 @@ const router = express.Router();
 
 // POST /admin/events
 router.post("/", async (req: Request, res: Response): Promise<void> => {
-  const { title, description, date, time, location, image_url } = req.body;
+  const { title, description, date, time, location, image_url, category } = req.body;
 
   if (!title || !description || !date || !time || !location) {
     res.status(400).json({ error: "Missing required fields" });
@@ -14,7 +14,7 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
 
   const { data, error } = await supabase
     .from("events")
-    .insert([{ title, description, date, time, location, image_url }])
+    .insert([{ title, description, date, time, location, image_url, category }])
     .select('*');
 
   if (error) {
@@ -28,7 +28,7 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
 // PUT /admin/events/:id
 router.put('/:id', async (req: Request, res: Response): Promise<void> => {
     const { id } = req.params;
-    const { title, description, date, time, location, image_url } = req.body;
+    const { title, description, date, time, location, image_url, category } = req.body;
   
     if (!title || !description || !date || !time || !location) {
       res.status(400).json({ error: 'Missing required fields' });
@@ -37,7 +37,7 @@ router.put('/:id', async (req: Request, res: Response): Promise<void> => {
   
     const { data, error } = await supabase
       .from('events')
-      .update({ title, description, date, time, location, image_url })
+      .update({ title, description, date, time, location, image_url, category })
       .eq('id', id)
       .select('*');
   
