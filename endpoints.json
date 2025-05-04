@@ -1,0 +1,113 @@
+{
+    "events": {
+      "GET /events": {
+        "description": "Fetch all events.",
+        "response": [
+          {
+            "id": "string",
+            "title": "string",
+            "description": "string",
+            "date": "YYYY-MM-DD",
+            "time": "HH:MM",
+            "location": "string",
+            "image_url": "string",
+            "category": "string"
+          }
+        ]
+      },
+      "GET /events/:id": {
+        "description": "Fetch a single event by ID.",
+        "response": {
+          "id": "string",
+          "title": "string",
+          "description": "string",
+          "date": "YYYY-MM-DD",
+          "time": "HH:MM",
+          "location": "string",
+          "image_url": "string",
+          "category": "string"
+        }
+      },
+      "POST /events": {
+        "description": "Create a new event.",
+        "request": {
+          "title": "string",
+          "description": "string",
+          "date": "YYYY-MM-DD",
+          "time": "HH:MM",
+          "location": "string",
+          "image_url": "string",
+          "category": "string"
+        },
+        "response": {
+          "message": "Event created",
+          "data": {
+            "id": "string",
+            "title": "string",
+            "description": "string",
+            "date": "YYYY-MM-DD",
+            "time": "HH:MM",
+            "location": "string",
+            "image_url": "string",
+            "category": "string"
+          }
+        }
+      },
+      "PUT /events/:id": {
+        "description": "Update an existing event.",
+        "request": "Same as POST",
+        "response": {
+          "message": "Event updated",
+          "data": {
+            "id": "string",
+            "title": "string",
+            "description": "string",
+            "date": "YYYY-MM-DD",
+            "time": "HH:MM",
+            "location": "string",
+            "image_url": "string",
+            "category": "string"
+          }
+        }
+      },
+      "DELETE /events/:id": {
+        "description": "Delete an event.",
+        "response": {
+          "message": "Event deleted"
+        }
+      }
+    },
+    "signups": {
+      "POST /signups": {
+        "description": "Sign up a user for an event.",
+        "request": {
+          "event_id": "string",
+          "user_email": "string"
+        },
+        "response": {
+          "message": "Signed up successfully",
+          "data": {
+            "id": "string",
+            "event_id": "string",
+            "user_email": "string"
+          }
+        }
+      },
+      "GET /signups?email={user_email}": {
+        "description": "Get all events a user has signed up for.",
+        "response": [
+          {
+            "id": "string",
+            "title": "string",
+            "description": "string",
+            "date": "YYYY-MM-DD",
+            "time": "HH:MM",
+            "location": "string",
+            "image_url": "string",
+            "category": "string"
+          }
+        ]
+      }
+    }
+  }
+  
