@@ -4,7 +4,7 @@ This is the backend API for the Hevents event management platform. It provides e
 
 ---
 
-## 📘 Overview
+## Overview 📘
 
 This backend powers the Hevents frontend. It exposes RESTful API endpoints for:
 
@@ -16,7 +16,7 @@ It is deployed on Render and uses Supabase for authentication and database opera
 
 ---
 
-## 🔐 Test Account Access
+## Test Account Access 🔐
 
 **Email:** `test@hevents.com`
 **Password:** `test1234`
@@ -28,7 +28,7 @@ Use this account to:
 
 ---
 
-## 🚀 Features
+## Features 🚀
 
 * RESTful API with CRUD operations for events
 * Signup flow for users
@@ -38,9 +38,9 @@ Use this account to:
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions ⚙️
 
-### 📦 Prerequisites
+### Prerequisites
 
 * Node.js (v18+ recommended)
 * Supabase project with relevant tables (`events`, `signups`, `users`)
@@ -72,6 +72,20 @@ npm run dev
 ```
 
 ---
+
+## Supabase Setup
+
+To run this project locally, you'll need a Supabase project with three tables:
+
+`events` – stores event details
+
+`signups` – tracks user signups per event
+
+`users` – stores user metadata and roles
+
+Basic row-level security (RLS) policies are required.
+
+View the full SQL schema setup → `setup/hevents_supabase_schema.sql`
 
 ## API Reference 📘
 
