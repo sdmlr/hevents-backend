@@ -79,7 +79,7 @@ Full documentation of API endpoints is available in [`endpoints.json`](./endpoin
 
 ---
 
-## 🧪 Deployment
+## Deployment 🧪
 
 The backend is deployed on [Render](https://hevents-backend.onrender.com), configured to auto-build from the `main` branch.
 
