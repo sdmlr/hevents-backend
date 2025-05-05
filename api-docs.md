@@ -146,7 +146,7 @@ Sign up a user for an event.
 
 ### `GET /signups?email={user_email}`
 
-Create a new event.
+Get all events a user has signed up for.
 
 **Response**
 
